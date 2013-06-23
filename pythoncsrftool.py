@@ -4,7 +4,6 @@ from urlparse import urlparse
 
 DEFAULT_HOST        = 'http://localhost'
 DEFAULT_COOKIE_NAME = ''
-
 cookies = {'defaultCookie' : ''}
 headers = {'defaultHeader' : ''}
 
@@ -29,7 +28,6 @@ def getCSRFTokenFromHtml(respuestaHTML):
 
 def makePOST(url):
     print "*************************"
-
     url = cleanURL(url)
 
     parsed_path   = urlparse(url)
@@ -49,10 +47,9 @@ def makePOST(url):
     print 'cookies:' 
     print cookies
 
-    result = requests.post(URL, headers=headers, data=params, cookies=cookies)
+    result = requests.post(URL, headers=headers, data=params, cookies=cookies
 
     print "*************************"
-
     return result
 
 def makeGET(url):
@@ -61,19 +58,17 @@ def makeGET(url):
     URL           = DEFAULT_HOST + parsed_path[2]
 
     print "GET request to " + URL
+
     result = requests.get(URL, headers=headers, cookies=cookies)
 
     print 'headers:' 
     print headers
     print 'cookies:' 
     print cookies
-
     print "*************************"
     return result
 
-
 inputFile = open('headers.txt', 'r')
-
 requestNumber = 0
 for line in iter(inputFile):  
     key, value = line.split(' ',1)  
@@ -110,5 +105,4 @@ for line in iter(inputFile):
     except: 
       pass
 
-            
 inputFile.close()
