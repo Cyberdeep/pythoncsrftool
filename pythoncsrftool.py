@@ -1,5 +1,4 @@
-import requests, cookielib
-import re
+import requests, cookielib, re
 from urlparse import urlparse
 
 DEFAULT_HOST        = 'http://localhost'
